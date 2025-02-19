@@ -23,7 +23,8 @@ let maxNumberOfAttempts = 5;
 // > getRandomNumber(1, 50)
 // <- 11
 function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+  // Added 1  to include max value
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function checkGuess() {
@@ -63,6 +64,8 @@ function checkGuess() {
   if (attempts === maxNumberOfAttempts) {
     submitButton.disabled = true;
     guessInput.disabled = true;
+    // Added to show "max guesses reached" message
+    maxGuessesMessage.style.display = '';
   }
 
   guessInput.value = '';
